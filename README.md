@@ -1,6 +1,6 @@
 # OpenCCTV
-Basic web GIS of Auckland CCTV Network.
-- Auckland Transportation (AT) has their CCTV network publicaly avaiable.
+A basic web GIS of Auckland CCTV Network.
+Auckland Transportation (AT) has their CCTV network publicaly avaiable.
 
 ## Usage
 Download the html file and open it using a browser.
