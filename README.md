@@ -2,4 +2,4 @@
 Basic web GIS of Auckland CCTV Network
 
 ## Concept
-Auckland Transporation has a public list of CCTV network available. We are going to map all the cameras.
+Auckland Transportation (AT) has their CCTV network publicaly avaiable. We are going to map all the cameras.
