@@ -6,11 +6,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
 	<script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
-  
   <script>
-    /* OSM & OL example code provided by https://mediarealm.com.au/ */
+
     var map;
-    var mapLat = -36.8513; /* -36.8461, 174.7569 */
+    var mapLat = -36.8513;
 		var mapLng = 174.7644;
     var mapDefaultZoom = 11;
     
@@ -51,11 +50,23 @@
       map.addLayer(vectorLayer); 
     }
 
-
+    var req = new XMLHttpRequest();
+    req.open("GET", "https://raw.githubusercontent.com/PaulAtKeyboard/OpenCCTV/master/data.json", false);
+    req.send();
+    var data = JSON.parse(req.responseText);
+    console.log(data[0]);
+    function make_map() {
+      for (rows of data) {
+        add_map_point(rows["Lattitude"], rows["Longitude"]);
+      }
+    }
   </script>
+  <style type="text/css"></style>
 </head>
-<body onload="initialize_map(); add_map_point(-36.8461, 174.7569);">
-
-  <div id="map" style="width: 100vw; height: 100vh;"></div>
+<body onload="initialize_map(); make_map();">
+  <div id="map" style="position: absolute; width: 50vw; height: 100vh; left: 0; top: 0"></div>
+  <div style="position: absolute; width: 50vw; height: 100vh; right: 0; top: 0; background-color: #222; color: #efefef; font-family: sans-serif; line-height: 10vh; text-align: center; font-size: 42pt;">
+    Public Security Cameras around Auckland
+  </div>
 </body>
 </html>
