@@ -11,7 +11,9 @@ We found the data online via a Radio New Zealand article. We believe someone req
 https://assets.documentcloud.org/documents/6253935/CCTV-LGOIMA-CCTV-Locations.pdf
 
 ## Built with
-* [Open Street Map](https://www.openstreetmap.org/about)
+* [Open Street Map](https://www.openstreetmap.org/)
+* [JavaScript](https://www.javascript.com/)
+* [JSON](https://www.json.org/)
 
 ## Project Status
 Currently a Minimally Viable Product.
