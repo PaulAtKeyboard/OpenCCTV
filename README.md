@@ -24,7 +24,10 @@ Any information regarding brand, model, license plate recongition, facial recogn
 Currently a Minimally Viable Product.
 
 ## Disclaimer
-###This Project is just for fun.
+### This Project is just for fun.
+### AUTHORS MAKE NO GUARANTEE OF VALIDITY
+### PLEASE BE AWARE THAT ANY INFORMATION YOU MAY FIND MAY BE INACCURATE, MISLEADING, DANGEROUS, ADDICTIVE, UNETHICAL.
+### DO NOT RELY UPON ANY INFORMATION FOUND IN WIKIPEDIA WITHOUT INDEPENDENT VERIFICATION.
 * Information on this website has been derived from various sources.
 * All information should be considered as being illustrative and indicative only. Your use of information from this website is entirely at your own risk.
 * Authors does not give and expressly disclaims any warranty as to the accuracy or completeness of the information or its fitness for any purpose. 
