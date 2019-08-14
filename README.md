@@ -7,13 +7,13 @@ View the map [here](http://www.paulatkeyboard.com/OpenCCTV/) or download the ind
 ## Data
 AT have made their locations of CCTV Network publicly available after a Local Government Official Information and Meetings Act (LGOIMA) 1987 request made by an unknown party by the Authors of this Project.
 Said information was found via a Radio New Zealand article. 
-* [CCTV-LGOIMA-CCTV-Locations.pdf](https://assets.documentcloud.org/documents/6253935/CCTV-LGOIMA-CCTV-Locations.pdf)
 
 ### CCTV Specification 
 Any information regarding brand, model, license plate recongition, facial recognition, and camera view bearing information were not released by AT on the PDF doucment which this project is based on.
 
 ### Related News Articles & Additional Information
-* [Auckland Transport's $4.5m plan could mean 8000 cameras watching the city](https://www.rnz.co.nz/news/national/396465/auckland-transport-s-4-point-5m-plan-could-mean-8000-cameras-watching-the-city)
+* RNZ: _[Auckland Transport's $4.5m plan could mean 8000 cameras watching the city](https://www.rnz.co.nz/news/national/396465/auckland-transport-s-4-point-5m-plan-could-mean-8000-cameras-watching-the-city)_
+* [CCTV-LGOIMA-CCTV-Locations.pdf](https://assets.documentcloud.org/documents/6253935/CCTV-LGOIMA-CCTV-Locations.pdf)
 
 ## Built with
 * [Open Street Map](https://www.openstreetmap.org/)
