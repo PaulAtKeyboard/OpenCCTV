@@ -1,16 +1,16 @@
 # OpenCCTV
-A basic Web GIS of Auckland, New Zealand CCTV Network owend by Auckland Transport (AT).
+A basic Web GIS of CCTV Netowrk owend by Auckland Transport (AT) in Auckland, New Zealand.
 
 ## Usage
 Download the index.html file and open it using a browser.
 
 ## Data
-AT have released their locations of CCTV Network publicly available after a Local Government Official Information and Meetings Act (LGOIMA) 1987 request made by unknown party by the Authors of this Project.
+AT have made their locations of CCTV Network publicly available after a Local Government Official Information and Meetings Act (LGOIMA) 1987 request made by an unknown party by the Authors of this Project.
 Said information was found via a Radio New Zealand article. 
 * https://assets.documentcloud.org/documents/6253935/CCTV-LGOIMA-CCTV-Locations.pdf
 
 ### Related News Articles & Additional Information
-* ~TO BE RELEASED~
+* _TO BE RELEASED_
 
 ## Built with
 * [Open Street Map](https://www.openstreetmap.org/)
