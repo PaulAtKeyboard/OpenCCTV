@@ -24,20 +24,12 @@ Any information regarding brand, model, license plate recongition, facial recogn
 Currently a Minimally Viable Product.
 
 ## Disclaimer
-This Project is just for fun.
-
-* Information on this website has been derived from various sources
-
+###This Project is just for fun.
+* Information on this website has been derived from various sources.
 * All information should be considered as being illustrative and indicative only. Your use of information from this website is entirely at your own risk.
-
 * Authors does not give and expressly disclaims any warranty as to the accuracy or completeness of the information or its fitness for any purpose. 
-
 * Auckland Council accepts no liability for any error, omission, or inaccuracy of the information or from any use of or reliance on the information provided.
-
 * You should independently verify the accuracy of any information before taking any action in reliance upon it.
-
 * You waive and release Authors of this Project from any claims arising from your use of this website or the information provided by it. 
-
 * You indemnify Authors of this Project against all claims, loss or damages arising in connection with your use of the information provided. 
-
 * Information from this Project may not be used for the purposes of any legal disputes.
