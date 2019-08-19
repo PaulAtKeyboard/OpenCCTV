@@ -5,15 +5,15 @@ A basic Web GIS of CCTV Netowrk owend by Auckland Transport (AT) in Auckland, Ne
 View the map [here](http://www.paulatkeyboard.com/OpenCCTV/) or download the index.html file and open it using a browser.
 
 ## Data
-AT have made their locations of CCTV Network publicly available after a Local Government Official Information and Meetings Act (LGOIMA) 1987 request made by an unknown party by the Authors of this Project.
-Said information was found via a Radio New Zealand article. 
+AT have made their locations of CCTV Network publicly available. Said information was found on a Radio New Zealand article. 
+We believe such information was released under Local Government Official Information and Meetings Act (LGOIMA) 1987 request.
 
 ### CCTV Specification 
 Any information regarding brand, model, license plate recongition, facial recognition, and camera view bearing information were not released by AT on the PDF doucment which this Project is based on.
 
 ### Related News Articles & Additional Information
 * [CCTV-LGOIMA-CCTV-Locations.pdf](https://assets.documentcloud.org/documents/6253935/CCTV-LGOIMA-CCTV-Locations.pdf)
-* RNZ: _[Auckland Transport's $4.5m plan could mean 8000 cameras watching the city](https://www.rnz.co.nz/news/national/396465/auckland-transport-s-4-point-5m-plan-could-mean-8000-cameras-watching-the-city)_
+* [Auckland Transport's $4.5m plan could mean 8000 cameras watching the city](https://www.rnz.co.nz/news/national/396465/auckland-transport-s-4-point-5m-plan-could-mean-8000-cameras-watching-the-city)
 
 ## Built with
 * [Open Street Map](https://www.openstreetmap.org/)
@@ -21,7 +21,7 @@ Any information regarding brand, model, license plate recongition, facial recogn
 * [JSON](https://www.json.org/)
 
 ## Project Status
-Currently a Minimally Viable Product.
+Currently a Minimum Viable Product.
 
 ## Disclaimer
 ### This Project is just for fun.
