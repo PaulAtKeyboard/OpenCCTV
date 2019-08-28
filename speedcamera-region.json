@@ -1,0 +1,163 @@
+[
+  {
+    "Street": "West Coast Road",
+    "Locality (* indicates existing sites)": "Glen Eden",
+    "Start of camera zone": "-36.909258, 174.634322",
+    "End of camera zone": "-36.908515, 174.642780",
+    "Go-live Date": "November 2015"
+  },
+  {
+    "Street": "Candia Road",
+    "Locality (* indicates existing sites)": "Henderson Valley",
+    "Start of camera zone": "-36.897066, 174.596018",
+    "End of camera zone": "-36.868174, 174.589258",
+    "Go-live Date": "August 2015"
+  },
+  {
+    "Street": "Great North Road",
+    "Locality (* indicates existing sites)": "Kelston*",
+    "Start of camera zone": "-36.908900, 174.666421",
+    "End of camera zone": "-36.909201, 174.672753",
+    "Go-live Date": "March 2015"
+  },
+  {
+    "Street": "Old North Road",
+    "Locality (* indicates existing sites)": "Kumeu",
+    "Start of camera zone": "-36.776609,174.576509",
+    "End of camera zone": "-36.787316,174.576956",
+    "Go-live Date": "June 2017"
+  },
+  {
+    "Street": "Coatesville-Riverhead Highway",
+    "Locality (* indicates existing sites)": "Coatesville",
+    "Start of camera zone": "-36.734270, 174.623297",
+    "End of camera zone": "-36.740262, 174.621261",
+    "Go-live Date": "July 2018"
+  },
+  {
+    "Street": "State Highway 1",
+    "Locality (* indicates existing sites)": "Wellsford",
+    "Start of camera zone": "-36.329138, 174.546518",
+    "End of camera zone": "-36.303463, 174.527110",
+    "Go-live Date": "June 2018"
+  },
+  {
+    "Street": "State Highway 17",
+    "Locality (* indicates existing sites)": "Albany Heights",
+    "Start of camera zone": "-36.714135, 174.674193",
+    "End of camera zone": "-36.721391, 174.688924",
+    "Go-live Date": "June 2018"
+  },
+  {
+    "Street": "Great North Road",
+    "Locality (* indicates existing sites)": "Henderson",
+    "Start of camera zone": "-36.879606, 174.635283",
+    "End of camera zone": "-36.881554, 174.639746",
+    "Go-live Date": "August 2018"
+  },
+  {
+    "Street": "Twin Coast Discovery Highway",
+    "Locality (* indicates existing sites)": "Dome Valley",
+    "Start of camera zone": "-36.359092, 174.603529",
+    "End of camera zone": "-36.348726, 174.590635",
+    "Go-live Date": "June 2018"
+  },
+  {
+    "Street": "Rata Street",
+    "Locality (* indicates existing sites)": "New Lynn",
+    "Start of camera zone": "-36.906690, 174.678493",
+    "End of camera zone": "-36.903267, 174.681476",
+    "Go-live Date": "March 2018"
+  },
+  {
+    "Street": "East Coast Road",
+    "Locality (* indicates existing sites)": "Redvale",
+    "Start of camera zone": "-36.697902, 174.717437",
+    "End of camera zone": "-36.688736, 174.705979",
+    "Go-live Date": "December 2017"
+  },
+  {
+    "Street": "Ngapipi Road",
+    "Locality (* indicates existing sites)": "Orakei",
+    "Start of camera zone": "-36.856688,174.810312",
+    "End of camera zone": "-36.852601,174.805502",
+    "Go-live Date": "February 2017"
+  },
+  {
+    "Street": "Tamaki Drive",
+    "Locality (* indicates existing sites)": "Parnell",
+    "Start of camera zone": "-36.847683, 174.787710",
+    "End of camera zone": "-36.852929, 174.805641",
+    "Go-live Date": "March 2018"
+  },
+  {
+    "Street": "Hillsborough Road",
+    "Locality (* indicates existing sites)": "Hillsborough",
+    "Start of camera zone": "-36.922161, 174.754243",
+    "End of camera zone": "-36.924856, 174.752129",
+    "Go-live Date": "March 2018"
+  },
+  {
+    "Street": "Great North Road",
+    "Locality (* indicates existing sites)": "Grey Lynn",
+    "Start of camera zone": "-36.866494, 174.738467",
+    "End of camera zone": "-36.866773, 174.740170",
+    "Go-live Date": "April 2018"
+  },
+  {
+    "Street": "Great South Road",
+    "Locality (* indicates existing sites)": "Otahuhu*",
+    "Start of camera zone": "-36.957346, 174.852735",
+    "End of camera zone": "-36.953253, 174.846740",
+    "Go-live Date": "February 2015"
+  },
+  {
+    "Street": "Mill Road",
+    "Locality (* indicates existing sites)": "Totara Park",
+    "Start of camera zone": "-36.995929, 174.922528",
+    "End of camera zone": "-37.010572, 174.935420",
+    "Go-live Date": "December 2014"
+  },
+  {
+    "Street": "Murphys Road",
+    "Locality (* indicates existing sites)": "Totara Park",
+    "Start of camera zone": "-36.989559, 174.915508",
+    "End of camera zone": "-36.967326, 174.924771",
+    "Go-live Date": "December 2014"
+  },
+  {
+    "Street": "Mahia Road",
+    "Locality (* indicates existing sites)": "Wattle Downs",
+    "Start of camera zone": "-37.038140, 174.888030",
+    "End of camera zone": "-37.039674, 174.883694",
+    "Go-live Date": "March 2018"
+  },
+  {
+    "Street": "Massey Road",
+    "Locality (* indicates existing sites)": "Mangere",
+    "Start of camera zone": "-36.976446, 174.800710",
+    "End of camera zone": "-36.977587, 174.804097",
+    "Go-live Date": "April 2018"
+  },
+  {
+    "Street": "Waiuku Road",
+    "Locality (* indicates existing sites)": "Mauku",
+    "Start of camera zone": "-37.214831, 174.797426",
+    "End of camera zone": "-37.219555, 174.780204",
+    "Go-live Date": "January 2018"
+  },
+  {
+    "Street": "Glenbrook Road",
+    "Locality (* indicates existing sites)": "Kingseat",
+    "Start of camera zone": "-37.171918, 174.797638",
+    "End of camera zone": "-37.176456, 174.785253",
+    "Go-live Date": "April 2018"
+  },
+  {
+    "Street": "Awhitu Road",
+    "Locality (* indicates existing sites)": "Karioitahi",
+    "Start of camera zone": "-37.226418, 174.700419",
+    "End of camera zone": "-37.231488, 174.702240",
+    "Go-live Date": "January 2018"
+  }
+]

@@ -42,16 +42,23 @@
             anchor: [0.5, 0.5],
             anchorXUnits: "fraction",
             anchorYUnits: "fraction",
-            src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg"
+            src: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Yellow_dot.svg",
+            scale: 0.42
           })
         })
       });
-
       map.addLayer(vectorLayer); 
     }
 
+    function add_speedcam_area(point1, point2) {
+      var vectorLayer = new ol.layer.Vector({
+
+      });
+      map.addLayer(vectorLayer);
+    }
+
     var req = new XMLHttpRequest();
-    req.open("GET", "https://raw.githubusercontent.com/PaulAtKeyboard/OpenCCTV/master/data.json", false);
+    req.open("GET", "data-AT-CCTV.json", false);
     req.send();
     var data = JSON.parse(req.responseText);
     console.log(data[0]);
@@ -64,8 +71,7 @@
   <style type="text/css"></style>
 </head>
 <body onload="initialize_map(); make_map();">
-  <div id="map" style="position: absolute; width: 75vw; height: 100vh; left: 0; top: 0"></div>
-  <div style="position: absolute; width: 25vw; height: 100vh; right: 0; top: 0; background-color: #222; color: #efefef; font-family: sans-serif; line-height: 10vh; text-align: center; font-size: 15pt;">Public Security Cameras around Auckland</div>
+  <div id="map" style="position: absolute; width: 100vw; height: 100vh; left: 0; top: 0"></div>
 
 </body>
 </html>
