@@ -16,9 +16,10 @@ Any information regarding brand, model, license plate recongition, facial recogn
 * [Auckland Transport's $4.5m plan could mean 8000 cameras watching the city](https://www.rnz.co.nz/news/national/396465/auckland-transport-s-4-point-5m-plan-could-mean-8000-cameras-watching-the-city)
 
 ## Built with
-* [Open Street Map](https://www.openstreetmap.org/)
+* [Leaflet](https://leafletjs.com)
 * [JavaScript](https://www.javascript.com/)
 * [JSON](https://www.json.org/)
+* [Open Street Map](https://www.openstreetmap.org/)
 
 ## Project Status
 Currently a Minimum Viable Product.
