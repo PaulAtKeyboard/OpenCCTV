@@ -50,12 +50,39 @@
       map.addLayer(vectorLayer); 
     }
 
-    function add_speedcam_area(point1, point2) {
-      var p1 = new OpenLayers.Geometry
+    //point1 and point2 are a combination of lat/long given in strings, separated by a comma ","
+    function add_speedcam_area(lat, lng) {
       var vectorLayer = new ol.layer.Vector({
-
+        source:new ol.source.Vector({
+          features: [new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([parseFloat(lng), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857')),
+            })]
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 0.5],
+            anchorXUnits: "fraction",
+            anchorYUnits: "fraction",
+            src: "https://en.wikipedia.org/wiki/File:RedDotX.svg#/media/File:RedDotX.svg",
+            scale: 0.2
+          })
+        })
       });
-      map.addLayer(vectorLayer);
+      map.addLayer(vectorLayer); 
+    }
+
+    function draw_speedcam_road(a, b) {
+      ae = a.split(",");
+      alng = ae[0]; alat = ae[1];
+      be = b.split(",");
+      blng = be[0]; blat = be[1];
+
+      while (alat != blat && alng != blng) {
+        if (count % 100 == 0) add_speedcam_area(alat, alng);
+        count++;
+        alat > blat ? alat+0.000001 : alat-0.000001;
+        alng < blng ? alng+0.000001 : alng-0.000001;
+      }
     }
 
     var req = new XMLHttpRequest();
@@ -68,10 +95,23 @@
         add_map_point(rows["Lattitude"], rows["Longitude"]);
       }
     }
+
+    var req2 = new XMLHttpRequest();
+    req2.open("GET", "speedcamera-region.json", false);
+    req2.send();
+    data2 = JSON.parse(req2.responseText);
+    console.log(data2[0]);
+    function make_speedmap() {
+      for (rows of data2) {
+        draw_speedcam_road(rows["Start of camera zone"], rows["End of camera zone"]);
+      }
+    }
+
+
   </script>
   <style type="text/css"></style>
 </head>
-<body onload="initialize_map(); make_map();">
+<body onload="initialize_map(); make_map(); make_speedmap();">
   <div id="map" style="position: absolute; width: 100vw; height: 100vh; left: 0; top: 0"></div>
 
 </body>
