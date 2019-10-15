@@ -51,7 +51,7 @@
     }
 
     var req = new XMLHttpRequest();
-    req.open("GET", "https://raw.githubusercontent.com/PaulAtKeyboard/OpenCCTV/master/data.json", false);
+    req.open("GET", "https://raw.githubusercontent.com/PaulAtKeyboard/OpenCCTV/master/data-AT-CCTV.json", false);
     req.send();
     var data = JSON.parse(req.responseText);
     console.log(data[0]);
