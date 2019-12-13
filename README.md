@@ -37,3 +37,5 @@ Currently a Minimum Viable Product.
 * You waive and release Authors of this Project from any claims arising from your use of this website or the information provided by it. 
 * You indemnify Authors of this Project against all claims, loss or damages arising in connection with your use of the information provided. 
 * Information from this Project may not be used for the purposes of any legal disputes.
+
+Created and maintained by Paul and Omi
