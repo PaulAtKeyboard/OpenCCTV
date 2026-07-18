@@ -512,8 +512,8 @@ Road,Ellerslie Panmure Hwy PedX Alana Pl Ballarat St,-36.8983,174.823
 Road,Ellerslie Panmure Hwy PedX Harris Rd,-36.8968,174.8318
 Road,EP Highway - Forge Way PTZ,-36.8982,174.8479
 Road,EP Highway - Mt Wellington PTZ,-36.8976,174.8454
-Analytics,ESMONDE RD  BARRYS POINT RD 1 - ANA,-36.7964,174.7662
-Analytics,ESMONDE RD  BARRYS POINT RD 2,-36.7965,174.766
+Analytics,ESMONDE RD BARRYS POINT RD 1 - ANA,-36.7964,174.7662
+Analytics,ESMONDE RD BARRYS POINT RD 2,-36.7965,174.766
 Analytics,ESMONDE RD FRED THOMAS DRIVE 1 - ANA,-36.7969,174.7651
 Analytics,ESMONDE RD FRED THOMAS DRIVE 2,-36.7983,174.763
 Analytics,ESMONDE RD HARBOURSIDE CHURCH 1 - ANA,-36.797,174.7611
@@ -1587,22 +1587,22 @@ Train,Sunnyvale Train Station,-36.8975,174.6317
 Train,Sunnyvale Park & Ride,-36.8962,174.6337
 Train,Sunnyvale Park & Ride,-36.8967,174.6335
 Road,Sunset Rd / Glenfield Rd,,
-Train,Swanson  Train Station,-36.866,174.5761
-Train,Swanson  Train Station,-36.8664,174.5771
-Train,Swanson  Train Station,,
-Train,Swanson  Train Station,-36.8661,174.5763
-Train,Swanson  Train Station,-36.8661,174.5765
-Train,Swanson  Train Station,-36.8663,174.577
-Train,Swanson  Train Station,-36.8662,174.577
-Train,Swanson  Train Station,-36.8663,174.5773
-Train,Swanson  Train Station,-36.8662,174.576
-Train,Swanson  Train Station,-36.8663,174.5764
-Train,Swanson  Train Station,-36.8663,174.5767
-Train,Swanson  Train Station,-36.8663,174.5769
-Train,Swanson  Park & Ride,-36.8663,174.5778
-Train,Swanson  Park & Ride,-36.8658,174.576
-Train,Swanson  Park & Ride,-36.8661,174.5772
-Train,Swanson  Park & Ride,-36.8659,174.5767
+Train,Swanson Train Station,-36.866,174.5761
+Train,Swanson Train Station,-36.8664,174.5771
+Train,Swanson Train Station,,
+Train,Swanson Train Station,-36.8661,174.5763
+Train,Swanson Train Station,-36.8661,174.5765
+Train,Swanson Train Station,-36.8663,174.577
+Train,Swanson Train Station,-36.8662,174.577
+Train,Swanson Train Station,-36.8663,174.5773
+Train,Swanson Train Station,-36.8662,174.576
+Train,Swanson Train Station,-36.8663,174.5764
+Train,Swanson Train Station,-36.8663,174.5767
+Train,Swanson Train Station,-36.8663,174.5769
+Train,Swanson Park & Ride,-36.8663,174.5778
+Train,Swanson Park & Ride,-36.8658,174.576
+Train,Swanson Park & Ride,-36.8661,174.5772
+Train,Swanson Park & Ride,-36.8659,174.5767
 Road,Swanson Rd / Sturges Rd,-36.8734,174.6243
 Train,Sylvia Park Train Station,-36.9135,174.8422
 Train,Sylvia Park Train Station,-36.9143,174.8424
@@ -1666,7 +1666,7 @@ Road,TAMAKI PATTESON,-36.8482,174.8317
 Road,Te Atatu Rd / Covil Ave,-36.8601,174.6509
 Road,Te Atatu Rd / Edmonton Rd,-36.8651,174.6471
 Road,Te Atatu Rd / Vera Rd,-36.8626,174.6489
-Road,Te Irirangi  Dr / Dawson Rd,-36.9781,174.8976
+Road,Te Irirangi Dr / Dawson Rd,-36.9781,174.8976
 Road,Te Irirangi / Accent,-36.9542,174.905
 Road,Te Irirangi / Bishop Dunn Pl,-36.9593,174.9034
 Road,Te Irirangi / Haven Drive,-36.9344,174.9103
@@ -1691,7 +1691,7 @@ Train,Te papa Train Station,-36.9201,174.8016
 Train,Te papa Train Station,-36.9201,174.8015
 Train,Te papa Train Station,-36.9202,174.8014
 Train,Te papa Train Station,-36.9203,174.8012
-Road,Ti  Rakau Dr / Harris Road,-36.9271,174.8979
+Road,Ti Rakau Dr / Harris Road,-36.9271,174.8979
 Road,Ti Rakau Dr / Chapel/ Dannemora,-36.9296,174.9159
 Road,Ti Rakau Dr / Gossamer Dr,-36.9239,174.885
 Road,Ti Rakau Dr / Greenmount Drive,-36.9279,174.902
@@ -1705,8 +1705,8 @@ Road,Ti Rakau Dr Trugood Dr,-36.926,174.8918
 Road,TINLEY ST CAM1,-36.8449,174.7737
 Road,Titirangi Rd / Arawa St,-36.9104,174.6765
 Road,Tom Pearce Dr / Jimmy Ward Cr,-36.9988,174.8002
-Analytics,Union Nelson RLC Detect  - ANA,-36.8539,174.7576
-Analytics,Union Nelson RLC Runner  - ANA,-36.8536,174.7573
+Analytics,Union Nelson RLC Detect - ANA,-36.8539,174.7576
+Analytics,Union Nelson RLC Runner - ANA,-36.8536,174.7573
 Road,Union St / Nelson St,-36.8537,174.7576
 Road,Union Wellington,-36.8529,174.7563
 Road,Victoria St / Elliott St,-36.8488,174.7645
