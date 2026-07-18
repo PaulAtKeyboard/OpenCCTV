@@ -8,7 +8,7 @@ View the map [here](http://www.paulatkeyboard.com/OpenCCTV/) or download this re
 AT have made their locations of CCTV Network publicly available. Said information was found on a Radio New Zealand article.
 We believe such information was released under Local Government Official Information and Meetings Act (LGOIMA) 1987 request.
 
-The dataset is de-duplicated (the original release contained ~925 exact duplicate rows) and provided in three formats: `data-AT-CCTV.csv`, `data-AT-CCTV.json`, and `data-AT-CCTV.geojson`.
+The dataset is a snapshot from **August 2019** and has not been updated since — AT's camera network has likely changed. 1,817 de-duplicated camera locations (the original release contained ~925 exact duplicate rows) are provided in three formats: `data-AT-CCTV.csv`, `data-AT-CCTV.json`, and `data-AT-CCTV.geojson`.
 
 ### CCTV Specification
 Any information regarding brand, model, license plate recognition, facial recognition, and camera view bearing information were not released by AT on the PDF document which this Project is based on.
