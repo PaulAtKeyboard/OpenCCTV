@@ -2,83 +2,65 @@
 <html lang="en">
   <head>
     <title>Auckland CCTV Network</title>
-  	<meta charset="utf-8">
-  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142834572-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      gtag('config', 'UA-142834572-1');
-    </script>
-    <!-- Open Street Map -->
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
-  	<script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
-    <script>
-      var map;
-      var mapLat = -36.8513;
-  		var mapLng = 174.7644;
-      var mapDefaultZoom = 11;
-      
-      function initialize_map() {
-        map = new ol.Map({
-          target: "map",
-          layers: [
-              new ol.layer.Tile({
-                  source: new ol.source.OSM({
-                        url: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  })
-              })
-          ],
-          view: new ol.View({
-              center: ol.proj.fromLonLat([mapLng, mapLat]),
-              zoom: mapDefaultZoom
-          })
-        });
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""></script>
+
+    <!-- Local dataset (avoids a network fetch and works when opened directly from disk) -->
+    <script src="data.js"></script>
+
+    <style>
+      html, body, #map { height: 100%; margin: 0; padding: 0; }
+      .camera-count {
+        position: absolute; z-index: 1000; top: 10px; right: 10px;
+        background: rgba(34, 34, 34, 0.85); color: #efefef;
+        font-family: sans-serif; font-size: 13px;
+        padding: 6px 10px; border-radius: 4px;
       }
-
-      function add_map_point(lat, lng) {
-        var vectorLayer = new ol.layer.Vector({
-          source:new ol.source.Vector({
-            features: [new ol.Feature({
-                  geometry: new ol.geom.Point(ol.proj.transform([parseFloat(lng), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857')),
-              })]
-          }),
-          style: new ol.style.Style({
-            image: new ol.style.Icon({
-              anchor: [0.5, 0.5],
-              anchorXUnits: "fraction",
-              anchorYUnits: "fraction",
-              src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg"
-            })
-          })
-        });
-
-        map.addLayer(vectorLayer); 
-      }
-
-      var req = new XMLHttpRequest();
-      req.open("GET", "https://raw.githubusercontent.com/PaulAtKeyboard/OpenCCTV/master/data-AT-CCTV.json", false);
-      req.send();
-      var data = JSON.parse(req.responseText);
-      console.log(data[0]);
-      function make_map() {
-        for (rows of data) {
-          add_map_point(rows["Lattitude"], rows["Longitude"]);
-        }
-      }
-    </script>
-
-    <style type="text/css"></style>
+    </style>
   </head>
 
-  <body onload="initialize_map(); make_map();">
-    <div id="map" style="position: absolute; width: 100vw; height: 100vh; left: 0; top: 0"></div>
-    <!--
-    <div style="position: absolute; width: 50vw; height: 100vh; right: 0; top: 0; background-color: #222; color: #efefef; font-family: sans-serif; line-height: 10vh; text-align: center; font-size: 42pt;">Public Security Cameras around Auckland</div>
-    -->
+  <body>
+    <div id="map"></div>
+    <div class="camera-count" id="camera-count"></div>
+
+    <script>
+      var map = L.map('map').setView([-36.8513, 174.7644], 11);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var camerasLayer = L.geoJSON(data, {
+        pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, {
+            radius: 5,
+            weight: 1,
+            color: '#b30000',
+            fillColor: '#ff4d4d',
+            fillOpacity: 0.8
+          });
+        },
+        onEachFeature: function (feature, layer) {
+          var props = feature.properties || {};
+          layer.bindPopup(
+            '<b>' + (props['Business Unit'] || 'Unknown') + '</b><br>' +
+            (props['Location'] || '')
+          );
+        }
+      }).addTo(map);
+
+      document.getElementById('camera-count').textContent =
+        data.features.length + ' camera locations';
+    </script>
   </body>
 </html>
 
@@ -90,10 +72,10 @@
       * DO NOT RELY UPON ANY INFORMATION FOUND WITHOUT INDEPENDENT VERIFICATION.
       * Information on this website has been derived from various sources.
       * All information should be considered as being illustrative and indicative only. Your use of information from this website is entirely at your own risk.
-      * Authors does not give and expressly disclaims any warranty as to the accuracy or completeness of the information or its fitness for any purpose. 
+      * Authors does not give and expressly disclaims any warranty as to the accuracy or completeness of the information or its fitness for any purpose.
       * Auckland Council accepts no liability for any error, omission, or inaccuracy of the information or from any use of or reliance on the information provided.
       * You should independently verify the accuracy of any information before taking any action in reliance upon it.
-      * You waive and release Authors of this Project from any claims arising from your use of this website or the information provided by it. 
-      * You indemnify Authors of this Project against all claims, loss or damages arising in connection with your use of the information provided. 
+      * You waive and release Authors of this Project from any claims arising from your use of this website or the information provided by it.
+      * You indemnify Authors of this Project against all claims, loss or damages arising in connection with your use of the information provided.
       * Information from this Project may not be used for the purposes of any legal disputes.
 -->

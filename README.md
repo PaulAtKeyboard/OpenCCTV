@@ -1,15 +1,17 @@
 # OpenCCTV
-A basic Web GIS of CCTV Netowrk owend by Auckland Transport (AT) in Auckland, New Zealand.
+A basic Web GIS of the CCTV network owned by Auckland Transport (AT) in Auckland, New Zealand.
 
 ## Usage
-View the map [here](http://www.paulatkeyboard.com/OpenCCTV/) or download the index.html file and open it using a browser.
+View the map [here](http://www.paulatkeyboard.com/OpenCCTV/) or download this repository and open `index.html` in a browser. The map data is bundled locally in `data.js`, so no network fetch of the dataset is required (map tiles still need an internet connection).
 
 ## Data
 AT have made their locations of CCTV Network publicly available. Said information was found on a Radio New Zealand article. 
 We believe such information was released under Local Government Official Information and Meetings Act (LGOIMA) 1987 request.
 
+The dataset is de-duplicated (the original release contained ~925 exact duplicate rows) and provided in three formats: `data-AT-CCTV.csv`, `data-AT-CCTV.json`, and `data-AT-CCTV.geojson`.
+
 ### CCTV Specification 
-Any information regarding brand, model, license plate recongition, facial recognition, and camera view bearing information were not released by AT on the PDF doucment which this Project is based on.
+Any information regarding brand, model, license plate recognition, facial recognition, and camera view bearing information were not released by AT on the PDF document which this Project is based on.
 
 ### Related News Articles & Additional Information
 * [CCTV-LGOIMA-CCTV-Locations.pdf](https://assets.documentcloud.org/documents/6253935/CCTV-LGOIMA-CCTV-Locations.pdf)
