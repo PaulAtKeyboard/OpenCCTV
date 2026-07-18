@@ -4,7 +4,7 @@ A basic Web GIS of the CCTV network owned by Auckland Transport (AT) in Auckland
 ## Usage
 View the map [here](http://www.paulatkeyboard.com/OpenCCTV/) or download this repository and open `index.html` in a browser. The map data is bundled locally in `data.js`, so no network fetch of the dataset is required (map tiles still need an internet connection).
 
-Cameras can be filtered by type using the checkboxes in the top-right layer control: Road & Traffic, Rail & Train, Bus, Parking & Enforcement, and Other (ferry, wharf, parks, and a handful of smaller categories). This groups the dataset's 13 raw `Business Unit` values into 5 types for a manageable toggle list — the original, more specific value is still shown when you click a marker.
+Cameras can be filtered by type using the checkboxes in the top-right layer control: Road & Traffic, Public Transport (rail, train, bus, ferry, wharf, cycling), Enforcement, Council Property (corporate accommodation, museum, parks), and Other & Misc. This groups the dataset's 13 raw `Business Unit` values into 5 types for a manageable toggle list — the original, more specific value is still shown when you click a marker.
 
 ## Data
 AT have made their locations of CCTV Network publicly available. Said information was found on a Radio New Zealand article.

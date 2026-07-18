@@ -46,14 +46,14 @@
       // Business Unit still shows in each marker's popup. Colors are the
       // first 4 slots of a validated colorblind-safe categorical palette —
       // beyond 4 hues, all-pairs CVD separation fails on a scatter-style map,
-      // so everything past the top 4 by count folds into a neutral "Other".
+      // so the smallest group (Other & Misc) uses a neutral gray instead.
       var TYPE_GROUPS = [
         { label: 'Road & Traffic', color: '#2a78d6', units: ['Road', 'Analytics'] },
-        { label: 'Rail & Train', color: '#008300', units: ['Rail', 'Train'] },
-        { label: 'Bus', color: '#e87ba4', units: ['Bus'] },
-        { label: 'Parking & Enforcement', color: '#eda100', units: ['Parking & Enforcement'] }
+        { label: 'Public Transport', color: '#008300', units: ['Rail', 'Train', 'Bus', 'Ferry', 'Wharf', 'Cycling'] },
+        { label: 'Enforcement', color: '#e87ba4', units: ['Parking & Enforcement'] },
+        { label: 'Council Property', color: '#eda100', units: ['Corporate Accommodation', 'Museum', 'Parks'] }
       ];
-      var OTHER_GROUP = { label: 'Other (ferry, wharf, parks & more)', color: '#767671' };
+      var OTHER_GROUP = { label: 'Other & Misc', color: '#767671' };
       var ALL_GROUPS = TYPE_GROUPS.concat([OTHER_GROUP]);
 
       var unitToGroup = {};
