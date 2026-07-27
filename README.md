@@ -2,7 +2,7 @@
 A basic Web GIS of the CCTV network owned by Auckland Transport (AT) in Auckland, New Zealand.
 
 ## Usage
-View the map [here](http://www.paulatkeyboard.com/OpenCCTV/) or download this repository and open `index.html` in a browser. The map data is bundled locally in `data.js`, so no network fetch of the dataset is required (map tiles still need an internet connection).
+View the map [here](https://cctv.scienceplus.art/) or download this repository and open `index.html` in a browser. The map data is bundled locally in `data.js`, so no network fetch of the dataset is required (map tiles still need an internet connection).
 
 ## Data
 AT have made their locations of CCTV Network publicly available. Said information was found on a Radio New Zealand article.
