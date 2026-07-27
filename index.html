@@ -19,11 +19,12 @@
     <style>
       html, body, #map { height: 100%; margin: 0; padding: 0; }
       .camera-count {
-        position: absolute; z-index: 1000; top: 10px; right: 10px;
+        position: absolute; z-index: 1000; bottom: 10px; left: 10px;
         background: rgba(34, 34, 34, 0.85); color: #efefef;
         font-family: sans-serif; font-size: 13px;
         padding: 6px 10px; border-radius: 4px;
       }
+      .leaflet-control-layers-overlays label { display: flex; align-items: center; }
     </style>
   </head>
 
@@ -39,27 +40,83 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      var camerasLayer = L.geoJSON(data, {
-        pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, {
-            radius: 5,
-            weight: 1,
-            color: '#b30000',
-            fillColor: '#ff4d4d',
-            fillOpacity: 0.8
-          });
-        },
-        onEachFeature: function (feature, layer) {
-          var props = feature.properties || {};
-          layer.bindPopup(
-            '<b>' + (props['Business Unit'] || 'Unknown') + '</b><br>' +
-            (props['Location'] || '')
-          );
-        }
-      }).addTo(map);
+      // The raw "Business Unit" field has 13 values, several with only a
+      // handful of records, which makes for an unwieldy toggle list. Grouped
+      // here into 5 camera types for the layer control; the exact original
+      // Business Unit still shows in each marker's popup. Colors are the
+      // first 4 slots of a validated colorblind-safe categorical palette —
+      // beyond 4 hues, all-pairs CVD separation fails on a scatter-style map,
+      // so the smallest group (Other & Misc) uses a neutral gray instead.
+      var TYPE_GROUPS = [
+        { label: 'Road & Traffic', color: '#2a78d6', units: ['Road', 'Analytics'] },
+        { label: 'Public Transport', color: '#008300', units: ['Rail', 'Train', 'Bus', 'Ferry', 'Wharf', 'Cycling'] },
+        { label: 'Enforcement', color: '#e87ba4', units: ['Parking & Enforcement'] },
+        { label: 'Council Property', color: '#eda100', units: ['Corporate Accommodation', 'Museum', 'Parks'] }
+      ];
+      var OTHER_GROUP = { label: 'Other & Misc', color: '#767671' };
+      var ALL_GROUPS = TYPE_GROUPS.concat([OTHER_GROUP]);
 
-      document.getElementById('camera-count').textContent =
-        data.features.length + ' camera locations';
+      var unitToGroup = {};
+      TYPE_GROUPS.forEach(function (g) {
+        g.units.forEach(function (u) { unitToGroup[u] = g; });
+      });
+
+      var featuresByGroup = {};
+      ALL_GROUPS.forEach(function (g) { featuresByGroup[g.label] = []; });
+      data.features.forEach(function (f) {
+        var businessUnit = (f.properties || {})['Business Unit'];
+        var g = unitToGroup[businessUnit] || OTHER_GROUP;
+        featuresByGroup[g.label].push(f);
+      });
+
+      var overlays = {};
+      var groupLayers = {};
+
+      ALL_GROUPS.forEach(function (g) {
+        var layer = L.geoJSON(
+          { type: 'FeatureCollection', features: featuresByGroup[g.label] },
+          {
+            pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, {
+                radius: 5,
+                weight: 1,
+                color: '#333',
+                fillColor: g.color,
+                fillOpacity: 0.85
+              });
+            },
+            onEachFeature: function (feature, layer) {
+              var props = feature.properties || {};
+              layer.bindPopup(
+                '<b>' + (props['Business Unit'] || 'Unknown') + '</b><br>' +
+                (props['Location'] || '')
+              );
+            }
+          }
+        ).addTo(map);
+
+        groupLayers[g.label] = layer;
+
+        var swatch = '<span style="display:inline-block;width:10px;height:10px;' +
+          'border-radius:50%;background:' + g.color + ';margin-right:6px;flex:none;"></span>';
+        overlays[swatch + g.label + ' (' + featuresByGroup[g.label].length + ')'] = layer;
+      });
+
+      L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+
+      function updateCount() {
+        var visible = 0;
+        ALL_GROUPS.forEach(function (g) {
+          if (map.hasLayer(groupLayers[g.label])) {
+            visible += featuresByGroup[g.label].length;
+          }
+        });
+        document.getElementById('camera-count').textContent =
+          visible + ' of ' + data.features.length + ' camera locations';
+      }
+
+      map.on('overlayadd overlayremove', updateCount);
+      updateCount();
     </script>
   </body>
 </html>
