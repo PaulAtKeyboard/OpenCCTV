@@ -18,13 +18,103 @@
 
     <style>
       html, body, #map { height: 100%; margin: 0; padding: 0; }
+      @supports (height: 100dvh) {
+        body, #map { height: 100dvh; }
+      }
       .camera-count {
         position: absolute; z-index: 1000; bottom: 10px; left: 10px;
         background: rgba(34, 34, 34, 0.85); color: #efefef;
         font-family: sans-serif; font-size: 13px;
         padding: 6px 10px; border-radius: 4px;
       }
-      .leaflet-control-layers-overlays label { display: flex; align-items: center; }
+      .leaflet-control-layers.leaflet-control-layers-expanded {
+        width: min(252px, calc(100vw - 32px));
+        max-height: calc(100vh - 20px);
+        max-height: calc(100dvh - 20px);
+        overflow: hidden;
+        border: 0;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 8px 28px rgba(20, 28, 38, 0.28);
+        color: #202630;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 0;
+      }
+      .leaflet-control-layers-expanded .leaflet-control-layers-list {
+        width: 100%;
+        max-height: calc(100vh - 20px);
+        max-height: calc(100dvh - 20px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+      }
+      .leaflet-control-layers-base {
+        background: #202630;
+        color: #fff;
+        padding: 11px 14px 12px;
+      }
+      .leaflet-control-layers-overlays {
+        background: #fff;
+        padding: 11px 14px 13px;
+      }
+      .leaflet-control-layers-base::before,
+      .leaflet-control-layers-overlays::before {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+      .leaflet-control-layers-base::before {
+        color: #dbe2ea;
+        content: "Basemap";
+      }
+      .leaflet-control-layers-overlays::before {
+        color: #6b7280;
+        content: "Camera layers";
+      }
+      .leaflet-control-layers-separator {
+        height: 0;
+        margin: 0;
+        border-top: 0;
+      }
+      .leaflet-control-layers label {
+        margin: 0 -6px;
+        border-radius: 5px;
+        font-size: 12px;
+        line-height: 1.3;
+        padding: 4px 6px;
+      }
+      .leaflet-control-layers-base label:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .leaflet-control-layers-overlays label:hover {
+        background: #f3f5f7;
+      }
+      .leaflet-control-layers label > span,
+      .leaflet-control-layers label > span > span {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+      }
+      .leaflet-control-layers-selector {
+        width: 16px;
+        height: 16px;
+        flex: none;
+        margin: 0 8px 0 0;
+      }
+      .leaflet-control-layers-base .leaflet-control-layers-selector {
+        accent-color: #72a9ff;
+      }
+      .leaflet-control-layers-overlays .leaflet-control-layers-selector {
+        accent-color: #202630;
+      }
+      .leaflet-control-layers-selector:focus-visible {
+        outline: 3px solid #72a9ff;
+        outline-offset: 2px;
+      }
       .camera-popup-shell .leaflet-popup-content-wrapper {
         overflow: hidden;
         border-radius: 12px;
@@ -32,7 +122,7 @@
         padding: 0;
       }
       .camera-popup-shell .leaflet-popup-content {
-        width: 252px !important;
+        width: min(252px, calc(100vw - 40px)) !important;
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
@@ -57,7 +147,7 @@
       .camera-popup-card {
         --camera-accent: #767671;
         display: flex;
-        width: 252px;
+        width: min(252px, calc(100vw - 40px));
         height: 244px;
         flex-direction: column;
         color: #202630;
@@ -66,7 +156,6 @@
         box-sizing: border-box;
         height: 88px;
         flex: none;
-        border-top: 4px solid var(--camera-accent);
         background: #202630;
         color: #fff;
         padding: 11px 38px 12px 14px;
@@ -158,6 +247,96 @@
       .copy-coordinates:hover { background: #343c49; }
       .copy-coordinates:focus-visible { outline: 3px solid var(--camera-accent); outline-offset: 2px; }
       .copy-coordinates:disabled { cursor: default; opacity: 0.7; }
+
+      @media (max-width: 640px), (pointer: coarse) {
+        .leaflet-control-layers:not(.leaflet-control-layers-expanded) {
+          overflow: hidden;
+          border: 0;
+          border-radius: 10px;
+          box-shadow: 0 6px 20px rgba(20, 28, 38, 0.24);
+        }
+        .leaflet-control-layers-toggle {
+          width: 44px;
+          height: 44px;
+          background-size: 28px 28px;
+          touch-action: manipulation;
+        }
+        .leaflet-control-layers label {
+          box-sizing: border-box;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          padding-top: 7px;
+          padding-bottom: 7px;
+          touch-action: manipulation;
+        }
+        .leaflet-control-layers-selector {
+          width: 18px;
+          height: 18px;
+        }
+        .leaflet-control-zoom a {
+          width: 44px !important;
+          height: 44px !important;
+          font-size: 22px !important;
+          line-height: 44px !important;
+          touch-action: manipulation;
+        }
+        .camera-popup-header {
+          padding-right: 52px;
+        }
+        .camera-popup-shell a.leaflet-popup-close-button {
+          width: 40px;
+          height: 40px;
+          font-size: 25px;
+          line-height: 38px;
+          touch-action: manipulation;
+        }
+        .camera-popup-body {
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+        .camera-popup-detail {
+          height: 26px;
+        }
+        .copy-coordinates {
+          height: 44px;
+          margin-top: 7px;
+          touch-action: manipulation;
+        }
+        .camera-count {
+          right: 10px;
+          bottom: 28px;
+          left: 10px;
+          box-sizing: border-box;
+          width: max-content;
+          max-width: calc(100vw - 20px);
+          font-size: 12px;
+        }
+        .leaflet-control-attribution {
+          max-width: calc(100vw - 12px);
+          font-size: 10px;
+          line-height: 1.2;
+          text-align: right;
+          white-space: normal;
+        }
+      }
+
+      @supports (padding: max(0px)) {
+        @media (max-width: 640px) {
+          .leaflet-top.leaflet-left {
+            top: env(safe-area-inset-top);
+            left: env(safe-area-inset-left);
+          }
+          .leaflet-top.leaflet-right {
+            top: env(safe-area-inset-top);
+            right: env(safe-area-inset-right);
+          }
+          .camera-count {
+            bottom: max(28px, calc(env(safe-area-inset-bottom) + 24px));
+            left: max(10px, env(safe-area-inset-left));
+          }
+        }
+      }
     </style>
   </head>
 
@@ -166,6 +345,9 @@
     <div class="camera-count" id="camera-count"></div>
 
     <script>
+      var mobileViewport = window.matchMedia
+        ? window.matchMedia('(max-width: 640px)')
+        : { matches: false };
       var map = L.map('map').setView([-36.8513, 174.7644], 11);
 
       var openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -246,7 +428,7 @@
           return null;
         }
 
-        return latitude.toFixed(6) + ', ' + longitude.toFixed(6);
+        return latitude.toFixed(4) + ', ' + longitude.toFixed(4);
       }
 
       function fallbackCopyText(text) {
@@ -383,7 +565,7 @@
             onEachFeature: function (feature, layer) {
               layer.bindPopup(createPopupContent(feature, g), {
                 className: 'camera-popup-shell',
-                minWidth: 252,
+                minWidth: 220,
                 maxWidth: 252
               });
             }
@@ -397,7 +579,23 @@
         overlays[swatch + g.label + ' (' + featuresByGroup[g.label].length + ')'] = layer;
       });
 
-      L.control.layers(baseMaps, overlays, { collapsed: false }).addTo(map);
+      var layerControl = L.control.layers(baseMaps, overlays, {
+        collapsed: mobileViewport.matches
+      }).addTo(map);
+
+      function syncLayerControl(event) {
+        if (event.matches) {
+          layerControl.collapse();
+        } else {
+          layerControl.expand();
+        }
+      }
+
+      if (mobileViewport.addEventListener) {
+        mobileViewport.addEventListener('change', syncLayerControl);
+      } else if (mobileViewport.addListener) {
+        mobileViewport.addListener(syncLayerControl);
+      }
 
       function updateCount() {
         var visible = 0;
