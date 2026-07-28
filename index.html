@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23ff4d4d' stroke='%23b30000' stroke-width='8'/></svg>">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
 
     <!-- Local dataset (avoids a network fetch and works when opened directly from disk) -->
@@ -25,6 +25,139 @@
         padding: 6px 10px; border-radius: 4px;
       }
       .leaflet-control-layers-overlays label { display: flex; align-items: center; }
+      .camera-popup-shell .leaflet-popup-content-wrapper {
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 8px 28px rgba(20, 28, 38, 0.28);
+        padding: 0;
+      }
+      .camera-popup-shell .leaflet-popup-content {
+        width: 252px !important;
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .camera-popup-shell .leaflet-popup-tip {
+        box-shadow: 3px 3px 8px rgba(20, 28, 38, 0.16);
+      }
+      .camera-popup-shell a.leaflet-popup-close-button {
+        top: 7px;
+        right: 7px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 20px;
+        line-height: 24px;
+      }
+      .camera-popup-shell a.leaflet-popup-close-button:hover,
+      .camera-popup-shell a.leaflet-popup-close-button:focus {
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+      }
+      .camera-popup-card {
+        --camera-accent: #767671;
+        display: flex;
+        width: 252px;
+        height: 244px;
+        flex-direction: column;
+        color: #202630;
+      }
+      .camera-popup-header {
+        box-sizing: border-box;
+        height: 88px;
+        flex: none;
+        border-top: 4px solid var(--camera-accent);
+        background: #202630;
+        color: #fff;
+        padding: 11px 38px 12px 14px;
+      }
+      .camera-popup-category {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #dbe2ea;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+      .camera-popup-category-dot {
+        width: 8px;
+        height: 8px;
+        flex: none;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 50%;
+        background: var(--camera-accent);
+      }
+      .camera-popup-location {
+        display: -webkit-box;
+        height: 41px;
+        margin: 6px 0 0;
+        overflow: hidden;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.28;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .camera-popup-body {
+        box-sizing: border-box;
+        display: flex;
+        height: 156px;
+        flex: none;
+        flex-direction: column;
+        padding: 11px 14px 14px;
+      }
+      .camera-popup-detail {
+        display: grid;
+        box-sizing: border-box;
+        height: 30px;
+        flex: none;
+        grid-template-columns: 68px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        line-height: 1.35;
+      }
+      .camera-popup-detail + .camera-popup-detail {
+        border-top: 1px solid #edf0f2;
+      }
+      .camera-popup-label {
+        color: #6b7280;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .camera-popup-value {
+        display: -webkit-box;
+        min-width: 0;
+        max-height: 29px;
+        overflow: hidden;
+        color: #202630;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .camera-popup-coordinates {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-variant-numeric: tabular-nums;
+      }
+      .copy-coordinates {
+        width: 100%;
+        height: 32px;
+        flex: none;
+        margin-top: 8px;
+        border: 0;
+        border-radius: 6px;
+        background: #202630;
+        color: #fff;
+        cursor: pointer;
+        font: 600 12px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 0 10px;
+      }
+      .copy-coordinates:hover { background: #343c49; }
+      .copy-coordinates:focus-visible { outline: 3px solid var(--camera-accent); outline-offset: 2px; }
+      .copy-coordinates:disabled { cursor: default; opacity: 0.7; }
     </style>
   </head>
 
@@ -35,10 +168,34 @@
     <script>
       var map = L.map('map').setView([-36.8513, 174.7644], 11);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      var openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
+      });
+
+      var esriSatellite = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        {
+          maxZoom: 19,
+          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community'
+        }
+      );
+
+      var esriTopo = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+        {
+          maxZoom: 19,
+          attribution: 'Tiles &copy; Esri'
+        }
+      );
+
+      openStreetMap.addTo(map);
+
+      var baseMaps = {
+        'OpenStreetMap': openStreetMap,
+        'Esri Satellite': esriSatellite,
+        'Esri Topographic': esriTopo
+      };
 
       // The raw "Business Unit" field has 13 values, several with only a
       // handful of records, which makes for an unwieldy toggle list. Grouped
@@ -72,6 +229,144 @@
       var overlays = {};
       var groupLayers = {};
 
+      function getCoordinateText(feature) {
+        var coordinates = feature.geometry && feature.geometry.coordinates;
+        if (
+          !Array.isArray(coordinates) ||
+          coordinates.length < 2 ||
+          coordinates[0] === '' ||
+          coordinates[1] === ''
+        ) {
+          return null;
+        }
+
+        var longitude = Number(coordinates[0]);
+        var latitude = Number(coordinates[1]);
+        if (!Number.isFinite(longitude) || !Number.isFinite(latitude)) {
+          return null;
+        }
+
+        return latitude.toFixed(6) + ', ' + longitude.toFixed(6);
+      }
+
+      function fallbackCopyText(text) {
+        return new Promise(function (resolve, reject) {
+          var textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.focus();
+          textarea.select();
+
+          var copied = document.execCommand('copy');
+          document.body.removeChild(textarea);
+          if (copied) {
+            resolve();
+          } else {
+            reject(new Error('Copy command failed'));
+          }
+        });
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).catch(function () {
+            return fallbackCopyText(text);
+          });
+        }
+        return fallbackCopyText(text);
+      }
+
+      function appendPopupDetail(container, labelText, valueText, valueClassName) {
+        var detail = document.createElement('div');
+        detail.className = 'camera-popup-detail';
+
+        var label = document.createElement('span');
+        label.className = 'camera-popup-label';
+        label.textContent = labelText;
+        detail.appendChild(label);
+
+        var value = document.createElement('span');
+        value.className = 'camera-popup-value' + (valueClassName ? ' ' + valueClassName : '');
+        value.textContent = valueText;
+        detail.appendChild(value);
+
+        container.appendChild(detail);
+      }
+
+      function createPopupContent(feature, group) {
+        var props = feature.properties || {};
+        var popup = document.createElement('div');
+        popup.className = 'camera-popup-card';
+        popup.style.setProperty('--camera-accent', group.color);
+
+        var header = document.createElement('div');
+        header.className = 'camera-popup-header';
+
+        var category = document.createElement('div');
+        category.className = 'camera-popup-category';
+        var categoryDot = document.createElement('span');
+        categoryDot.className = 'camera-popup-category-dot';
+        categoryDot.setAttribute('aria-hidden', 'true');
+        category.appendChild(categoryDot);
+        var categoryText = document.createElement('span');
+        categoryText.textContent = group.label;
+        category.appendChild(categoryText);
+        header.appendChild(category);
+
+        var location = document.createElement('h3');
+        location.className = 'camera-popup-location';
+        location.textContent = props['Location'] || 'Location not specified';
+        header.appendChild(location);
+        popup.appendChild(header);
+
+        var body = document.createElement('div');
+        body.className = 'camera-popup-body';
+        appendPopupDetail(body, 'Type', props['Business Unit'] || 'Unknown');
+
+        var coordinateText = getCoordinateText(feature);
+        appendPopupDetail(
+          body,
+          'Coordinates',
+          coordinateText || 'Unavailable',
+          coordinateText ? 'camera-popup-coordinates' : ''
+        );
+        appendPopupDetail(body, 'Snapshot', 'August 2019');
+
+        var copyButton = document.createElement('button');
+        copyButton.type = 'button';
+        copyButton.className = 'copy-coordinates';
+        if (coordinateText) {
+          copyButton.textContent = 'Copy coordinates';
+          copyButton.setAttribute('aria-label', 'Copy coordinates ' + coordinateText);
+          copyButton.setAttribute('aria-live', 'polite');
+          copyButton.addEventListener('click', function () {
+            copyButton.disabled = true;
+            copyButton.textContent = 'Copying…';
+
+            copyText(coordinateText).then(function () {
+              copyButton.textContent = 'Copied';
+            }).catch(function () {
+              copyButton.textContent = 'Copy failed';
+            }).then(function () {
+              window.setTimeout(function () {
+                copyButton.disabled = false;
+                copyButton.textContent = 'Copy coordinates';
+              }, 1500);
+            });
+          });
+        } else {
+          copyButton.disabled = true;
+          copyButton.textContent = 'Coordinates unavailable';
+        }
+        body.appendChild(copyButton);
+
+        popup.appendChild(body);
+        return popup;
+      }
+
       ALL_GROUPS.forEach(function (g) {
         var layer = L.geoJSON(
           { type: 'FeatureCollection', features: featuresByGroup[g.label] },
@@ -86,11 +381,11 @@
               });
             },
             onEachFeature: function (feature, layer) {
-              var props = feature.properties || {};
-              layer.bindPopup(
-                '<b>' + (props['Business Unit'] || 'Unknown') + '</b><br>' +
-                (props['Location'] || '')
-              );
+              layer.bindPopup(createPopupContent(feature, g), {
+                className: 'camera-popup-shell',
+                minWidth: 252,
+                maxWidth: 252
+              });
             }
           }
         ).addTo(map);
@@ -102,7 +397,7 @@
         overlays[swatch + g.label + ' (' + featuresByGroup[g.label].length + ')'] = layer;
       });
 
-      L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+      L.control.layers(baseMaps, overlays, { collapsed: false }).addTo(map);
 
       function updateCount() {
         var visible = 0;

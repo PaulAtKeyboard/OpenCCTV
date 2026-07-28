@@ -6,6 +6,10 @@ View the map [here](https://cctv.scienceplus.art/) or download this repository a
 
 Cameras can be filtered by type using the checkboxes in the top-right layer control: Road & Traffic, Public Transport (rail, train, bus, ferry, wharf, cycling), Enforcement, Council Property (corporate accommodation, museum, parks), and Other & Misc. This groups the dataset's 13 raw `Business Unit` values into 5 types for a manageable toggle list — the original, more specific value is still shown when you click a marker.
 
+Camera popups show their coordinates and include a copy action. Records without usable coordinates show an unavailable state instead.
+
+The same control switches between OpenStreetMap, Esri Satellite, and Esri Topographic basemaps. OpenStreetMap remains the default, and provider attribution updates with the selected map.
+
 ## Data
 AT have made their locations of CCTV Network publicly available. Said information was found on a Radio New Zealand article.
 We believe such information was released under Local Government Official Information and Meetings Act (LGOIMA) 1987 request.
@@ -27,6 +31,7 @@ Any information regarding brand, model, license plate recognition, facial recogn
 * [JavaScript](https://www.javascript.com/)
 * [JSON](https://www.json.org/)
 * [Open Street Map](https://www.openstreetmap.org/)
+* [Esri basemaps](https://www.esri.com/en-us/arcgis/products/arcgis-living-atlas)
 
 ## Project Status
 Currently a Minimum Viable Product.
